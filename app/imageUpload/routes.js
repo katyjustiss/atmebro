@@ -1,5 +1,6 @@
-var fs = require('fs');
+'use strict';
 
+var fs = require('fs');
 var imgur = require('imgur');
 var multer = require('multer');
 var router = require('express').Router();
@@ -19,9 +20,8 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', upload.single('image'), function (req, res) {
-  console.log(req.file);
-  console.log(res)
-
+  // console.log(req.file)
+  // console.log(res)
   if (req.file) {
     imgur
       .uploadFile(req.file.path)
