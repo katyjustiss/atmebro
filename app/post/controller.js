@@ -10,6 +10,7 @@ module.exports.index = function (req, res) {
 };
 
 module.exports.create = function (req, res) {
+  req.body.url = req.imgur.data.link;
   Post.create(req.body, function (err) {
     if (err) { throw err; }
     res.redirect('/');

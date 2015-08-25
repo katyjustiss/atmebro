@@ -7,7 +7,7 @@ var app = require('../../app/');
 describe('Valid form', function (){
   it('respond with profile', function (done){
     request(app)
-      .get('/image')
+      .get('../post/index')
       .expect(200)
       .end(function (err, res) {
         if (err) throw err;
