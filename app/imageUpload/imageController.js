@@ -18,8 +18,11 @@ var uploadMulter = upload.single('image')
 
 module.exports.img = function (req, res, next) {
   uploadMulter(req, res, function (err) {
+    console.log(req.body)
     if (err) {
       console.log(err)
+    } else if(!req.file) {
+      next();
     }
     imgurUpload(req, function (err, result) {
       req.imgur = result;
