@@ -9,5 +9,6 @@ var imageUploadToImgur = require('../imageUpload/imageController');
 router.get('/', ctrl.index);
 router.post('/post', imageUploadToImgur, ctrl.create);
 router.get('/post/:id', ctrl.show);
+router.delete('/post/:id', ctrl.delete);
 
 module.exports = router;
