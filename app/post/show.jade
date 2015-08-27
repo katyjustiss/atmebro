@@ -1,9 +1,14 @@
 extends ../templates/layout
 
 block content
-  form(action='/post', method='POST')
+  form(action='/post', method='POST', enctype="multipart/form-data")
+    label(for='text') Message:
     input(name='text')
+    label(for='image') Upload Image:
+    input(type='file' name='image' accept="image/*")
     input(type='submit')
 
 
   .post= post.text
+  if post.url
+    img.post(src=post.url)
