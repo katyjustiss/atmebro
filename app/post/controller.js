@@ -5,6 +5,14 @@ var Post = require('./Post');
 module.exports.index = function (req, res) {
   Post.findAll(function (err, posts) {
     if (err) { throw err; }
+    res.format({
+      html: function () {
+        res.render('post/index', {posts: posts});
+      },
+      json: function () {
+        res.send({posts: posts});
+      }
+    });
     res.render('post/index', {posts: posts});
   });
 };

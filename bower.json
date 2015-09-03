@@ -1,0 +1,20 @@
+{
+  "name": "atMeBro",
+  "main": "index.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/katyjustiss/atmebro",
+  "authors": [
+    "Katy Justiss <katy.justiss@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5"
+  }
+}
