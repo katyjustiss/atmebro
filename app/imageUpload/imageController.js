@@ -20,9 +20,8 @@ var uploadMulter = upload.single('image')
 
 module.exports = function (req, res, next) {
   uploadMulter(req, res, function (err) {
-    console.log(req.body)
     if (err) {
-      console.log(err)
+      throw err;
     } else if(!req.file) {
       next();
     }
