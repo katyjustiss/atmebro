@@ -13,7 +13,8 @@ describe.only('IMAGE UPLOAD /post', function () {
   after(Post.dropCollection);
 
   it('should create a post with an image', function (done) {
-    Post.findAll(function(err, posts) {
+    Post.findAll(function (err, posts) {
+      if (err) throw err;
       expect(posts).to.deep.equal([]);
 
       request(app)
@@ -23,7 +24,8 @@ describe.only('IMAGE UPLOAD /post', function () {
         .expect('Moved Temporarily. Redirecting to /')
         .end(function (err) {
           if (err) throw err;
-          Post.findAll(function(err, posts) {
+          Post.findAll(function (err, posts) {
+            if (err) throw err;
             post = posts[0];
             expect(posts.length).to.equal(1);
             expect(post.url).to.exist;

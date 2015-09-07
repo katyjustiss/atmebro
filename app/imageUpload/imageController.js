@@ -12,24 +12,25 @@ var upload = multer({
     fileSize: tenMegaBytes
   },
   fileFilter: function (req, file, cb) {
-    cb(null, file.mimetype.slice(0,6) === 'image/');
+    cb(null, file.mimetype.slice(0, 6) === 'image/');
   }
 });
 
-var uploadMulter = upload.single('image')
+var uploadMulter = upload.single('image');
 
 module.exports = function (req, res, next) {
   uploadMulter(req, res, function (err) {
     if (err) {
       throw err;
-    } else if(!req.file) {
+    } else if (!req.file) {
       next();
     }
     uploadToImgur(req, function (err, result) {
+      if (err) throw err;
       req.imgur = result;
       next();
     });
-  })
+  });
 };
 
 function uploadToImgur(req, cb) {
