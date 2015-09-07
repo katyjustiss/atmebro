@@ -6,7 +6,7 @@ var app = require('../../app/');
 var mongo = require('../../lib/mongo');
 var Post = require('../post/Post');
 
-describe.only('IMAGE UPLOAD /post', function () {
+describe('IMAGE UPLOAD /post', function () {
   var post;
 
   before(mongo.connect);
